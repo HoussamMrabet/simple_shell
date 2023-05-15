@@ -5,11 +5,9 @@ This is a simple shell project, which is a command-line interpreter that allows 
 ## Authors profiles
 
 - Houssam Mrabet:
-    [GitHub](https://github.com/HoussamMrabet) 👨‍💻
-    [LinkedIn](https://www.linkedin.com/in/houssam-mrabet-6b758a176/) 👨‍💻
+    [GitHub](https://github.com/HoussamMrabet) 👨‍💻 | [LinkedIn](https://www.linkedin.com/in/houssam-mrabet-6b758a176/) 👨‍💻
 - Mahmoud Khairi:
-    [GitHub](https://github.com/Mahmoud-Khairi) 👨‍💻
-    [LinkedIn](https://www.linkedin.com/in/mahmoud-khairi-39942124a/) 👨‍💻
+    [GitHub](https://github.com/Mahmoud-Khairi) 👨‍💻 | [LinkedIn](https://www.linkedin.com/in/mahmoud-khairi-39942124a/) 👨‍💻
 
 ## How to Run the Simple Shell
 

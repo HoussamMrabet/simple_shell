@@ -15,7 +15,7 @@ To run the simple shell, follow these steps:
 
 1. Clone the repository using the following command:
 ```
-git clone https://github.com/<username>/simple_shell.git
+git clone https://github.com/HoussamMrabet/simple_shell.git
 ```
 
 2. Compile the program using the following command:

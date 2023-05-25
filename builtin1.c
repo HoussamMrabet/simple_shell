@@ -90,15 +90,15 @@ int _myalias(info_t *info)
 {
 	int b = 0;
 	char *x = NULL;
-	list_t *nd = NULL;
+	list_t *node = NULL;
 
 	if (info->argc == 1)
 	{
-		nd = info->alias;
-		while (nd)
+		node = info->alias;
+		while (node)
 		{
-			print_alias(nd);
-			nd = nd->next;
+			print_alias(node);
+			node = node->next;
 		}
 		return (0);
 	}

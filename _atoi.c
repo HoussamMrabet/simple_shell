@@ -47,28 +47,28 @@ int _isalpha(int c)
 
 int _atoi(char *s)
 {
-	int i, sign = 1, flag = 0, output;
-	unsigned int result = 0;
+	int x, mark = 1, flag = 0, otp;
+	unsigned int res = 0;
 
-	for (i = 0; s[i] != '\0' && flag != 2; i++)
+	for (x = 0; s[x] != '\0' && flag != 2; x++)
 	{
-		if (s[i] == '-')
-			sign *= -1;
+		if (s[x] == '-')
+			mark *= -1;
 
-		if (s[i] >= '0' && s[i] <= '9')
+		if (s[x] >= '0' && s[x] <= '9')
 		{
 			flag = 1;
-			result *= 10;
-			result += (s[i] - '0');
+			res *= 10;
+			res += (s[x] - '0');
 		}
 		else if (flag == 1)
 			flag = 2;
 	}
 
-	if (sign == -1)
-		output = -result;
+	if (mark == -1)
+		otp = -res;
 	else
-		output = result;
+		otp = res;
 
-	return (output);
+	return (otp);
 }

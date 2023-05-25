@@ -8,14 +8,14 @@
  */
 int _strlen(char *s)
 {
-	int i = 0;
+	int x = 0;
 
 	if (!s)
 		return (0);
 
 	while (*s++)
-		i++;
-	return (i);
+		x++;
+	return (x);
 }
 
 /**
@@ -64,12 +64,12 @@ char *starts_with(const char *haystack, const char *needle)
  */
 char *_strcat(char *dest, char *src)
 {
-	char *ret = dest;
+	char *r = dest;
 
 	while (*dest)
 		dest++;
 	while (*src)
 		*dest++ = *src++;
 	*dest = *src;
-	return (ret);
+	return (r);
 }

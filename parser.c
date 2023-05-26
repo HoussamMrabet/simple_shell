@@ -32,14 +32,14 @@ int is_cmd(info_t *info, char *path)
  */
 char *dup_chars(char *pathstr, int start, int stop)
 {
-	static char bf[1024];
-	int x = 0, y = 0;
+	static char buf[1024];
+	int i = 0, k = 0;
 
-	for (y = 0, x = start; x < stop; x++)
-		if (pathstr[x] != ':')
-			bf[y++] = pathstr[x];
-	bf[y] = 0;
-	return (bf);
+	for (k = 0, i = start; i < stop; i++)
+		if (pathstr[i] != ':')
+			buf[k++] = pathstr[i];
+	buf[k] = 0;
+	return (buf);
 }
 
 /**
@@ -52,8 +52,8 @@ char *dup_chars(char *pathstr, int start, int stop)
  */
 char *find_path(info_t *info, char *pathstr, char *cmd)
 {
-	int x = 0, curPos = 0;
-	char *pt;
+	int i = 0, curr_pos = 0;
+	char *path;
 
 	if (!pathstr)
 		return (NULL);
@@ -64,23 +64,23 @@ char *find_path(info_t *info, char *pathstr, char *cmd)
 	}
 	while (1)
 	{
-		if (!pathstr[x] || pathstr[x] == ':')
+		if (!pathstr[i] || pathstr[i] == ':')
 		{
-			pt = dup_chars(pathstr, curPos, x);
-			if (!*pt)
-				_strcat(pt, cmd);
+			path = dup_chars(pathstr, curr_pos, i);
+			if (!*path)
+				_strcat(path, cmd);
 			else
 			{
-				_strcat(pt, "/");
-				_strcat(pt, cmd);
+				_strcat(path, "/");
+				_strcat(path, cmd);
 			}
-			if (is_cmd(info, pt))
-				return (pt);
-			if (!pathstr[x])
+			if (is_cmd(info, path))
+				return (path);
+			if (!pathstr[i])
 				break;
-			curPos = x;
+			curr_pos = i;
 		}
-		x++;
+		i++;
 	}
 	return (NULL);
 }

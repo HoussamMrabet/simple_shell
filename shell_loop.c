@@ -9,21 +9,21 @@
  */
 int hsh(info_t *info, char **av)
 {
-	ssize_t sr = 0;
-	int bltnRet = 0;
+	ssize_t r = 0;
+	int builtin_ret = 0;
 
-	while (sr != -1 && bltnRet != -2)
+	while (r != -1 && builtin_ret != -2)
 	{
 		clear_info(info);
 		if (interactive(info))
 			_puts("$ ");
 		_eputchar(BUF_FLUSH);
-		sr = get_input(info);
-		if (sr != -1)
+		r = get_input(info);
+		if (r != -1)
 		{
 			set_info(info, av);
-			bltnRet = find_builtin(info);
-			if (bltnRet == -1)
+			builtin_ret = find_builtin(info);
+			if (builtin_ret == -1)
 				find_cmd(info);
 		}
 		else if (interactive(info))
@@ -34,13 +34,13 @@ int hsh(info_t *info, char **av)
 	free_info(info, 1);
 	if (!interactive(info) && info->status)
 		exit(info->status);
-	if (bltnRet == -2)
+	if (builtin_ret == -2)
 	{
 		if (info->err_num == -1)
 			exit(info->status);
 		exit(info->err_num);
 	}
-	return (bltnRet);
+	return (builtin_ret);
 }
 
 /**
@@ -54,7 +54,7 @@ int hsh(info_t *info, char **av)
  */
 int find_builtin(info_t *info)
 {
-	int x, built_in_ret = -1;
+	int i, built_in_ret = -1;
 	builtin_table builtintbl[] = {
 		{"exit", _myexit},
 		{"env", _myenv},
@@ -67,11 +67,11 @@ int find_builtin(info_t *info)
 		{NULL, NULL}
 	};
 
-	for (x = 0; builtintbl[x].type; x++)
-		if (_strcmp(info->argv[0], builtintbl[x].type) == 0)
+	for (i = 0; builtintbl[i].type; i++)
+		if (_strcmp(info->argv[0], builtintbl[i].type) == 0)
 		{
 			info->line_count++;
-			built_in_ret = builtintbl[x].func(info);
+			built_in_ret = builtintbl[i].func(info);
 			break;
 		}
 	return (built_in_ret);
@@ -85,25 +85,25 @@ int find_builtin(info_t *info)
  */
 void find_cmd(info_t *info)
 {
-	char *pt = NULL;
-	int x, y;
+	char *path = NULL;
+	int i, k;
 
-	info->pt = info->argv[0];
+	info->path = info->argv[0];
 	if (info->linecount_flag == 1)
 	{
 		info->line_count++;
 		info->linecount_flag = 0;
 	}
-	for (x = 0, y = 0; info->arg[x]; x++)
-		if (!is_delim(info->arg[x], " \t\n"))
-			y++;
-	if (!y)
+	for (i = 0, k = 0; info->arg[i]; i++)
+		if (!is_delim(info->arg[i], " \t\n"))
+			k++;
+	if (!k)
 		return;
 
-	pt = find_path(info, _getenv(info, "PATH="), info->argv[0]);
-	if (pt)
+	path = find_path(info, _getenv(info, "PATH="), info->argv[0]);
+	if (path)
 	{
-		info->pt = pt;
+		info->path = path;
 		fork_cmd(info);
 	}
 	else
@@ -127,16 +127,16 @@ void find_cmd(info_t *info)
  */
 void fork_cmd(info_t *info)
 {
-	pid_t childPid;
+	pid_t child_pid;
 
-	childPid = fork();
-	if (childPid == -1)
+	child_pid = fork();
+	if (child_pid == -1)
 	{
 		/* TODO: PUT ERROR FUNCTION */
 		perror("Error:");
 		return;
 	}
-	if (childPid == 0)
+	if (child_pid == 0)
 	{
 		if (execve(info->path, info->argv, get_environ(info)) == -1)
 		{

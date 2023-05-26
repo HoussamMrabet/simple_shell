@@ -4,10 +4,8 @@
  * main - entry point
  * @argc: arg count
  * @argv: arg vector
- *
  * Return: 0 on success, 1 on error
 */
-
 int main(int argc, char **argv)
 {
 	info_t inf[] = {INFO_INIT};
@@ -41,5 +39,7 @@ int main(int argc, char **argv)
 	populate_env_list(inf);
 	read_history(inf);
 	hsh(inf, argv);
+
 	return (EXIT_SUCCESS);
 }
+

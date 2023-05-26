@@ -1,11 +1,9 @@
 #include "shell.h"
 
 /**
- * _myexit - exits the shell
- * @inf: Structure containing potential arguments. Used to maintain
- * constant function prototype.
+ * _myexit - A function to exits the shell
+ * @inf: Structure
  * Return: exits with a given exit status
- * (0) if inf.argv[0] != "exit"
 */
 int _myexit(info_t *inf)
 {
@@ -31,10 +29,9 @@ int _myexit(info_t *inf)
 }
 
 /**
- * _mycd - changes the current directory of the process
- * @inf: Structure containing potential arguments. Used to maintain
- * constant function prototype.
- * Return: Always 0
+ * _mycd - A fucntion that changes the current directory
+ * @inf: Structure
+ * Return: Always returns 0
 */
 int _mycd(info_t *inf)
 {
@@ -75,14 +72,13 @@ int _mycd(info_t *inf)
 		_setenv(inf, "OLDPWD", _getenv(inf, "PWD="));
 		_setenv(inf, "PWD", getcwd(buffer, 1024));
 	}
-	
+
 	return (0);
 }
 
 /**
- * _myhelp - changes the current directory of the process
- * @inf: Structure containing potential arguments. Used to maintain
- * constant function prototype.
+ * _myhelp - A fucntion for help
+ * @inf: Structure
  * Return: Always 0
 */
 int _myhelp(info_t *inf)
@@ -96,3 +92,4 @@ int _myhelp(info_t *inf)
 
 	return (0);
 }
+

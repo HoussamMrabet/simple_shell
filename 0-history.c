@@ -3,7 +3,6 @@
 /**
  * get_history_file - gets the history file
  * @inf: parameter struct
- *
  * Return: allocated string containg history file
 */
 char *get_history_file(info_t *inf)
@@ -57,7 +56,6 @@ int write_history(info_t *inf)
 /**
  * read_history - reads history from file
  * @inf: the parameter struct
- *
  * Return: histcount on success, 0 otherwise
 */
 int read_history(info_t *inf)
@@ -109,7 +107,6 @@ int read_history(info_t *inf)
  * @inf: Structure containing potential arguments. Used to maintain
  * @buffer: buffer
  * @lineCount: the history lineCount, histcount
- *
  * Return: Always 0
 */
 int build_history_list(info_t *inf, char *buffer, int lineCount)
@@ -145,3 +142,4 @@ int renumber_history(info_t *inf)
 
 	return (inf->histcount = i);
 }
+

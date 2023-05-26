@@ -5,9 +5,8 @@
  * @info: the parameter struct
  * @buf: the char buffer
  * @p: address of current position in buf
- *
  * Return: 1 if chain delimeter, 0 otherwise
- */
+*/
 int is_chain(info_t *info, char *buf, size_t *p)
 {
 	size_t j = *p;
@@ -32,6 +31,7 @@ int is_chain(info_t *info, char *buf, size_t *p)
 	else
 		return (0);
 	*p = j;
+
 	return (1);
 }
 
@@ -42,9 +42,8 @@ int is_chain(info_t *info, char *buf, size_t *p)
  * @p: address of current position in buf
  * @i: starting position in buf
  * @len: length of buf
- *
  * Return: Void
- */
+*/
 void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 {
 	size_t j = *p;
@@ -72,9 +71,8 @@ void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 /**
  * replace_alias - replaces an aliases in the tokenized string
  * @info: the parameter struct
- *
  * Return: 1 if replaced, 0 otherwise
- */
+*/
 int replace_alias(info_t *info)
 {
 	int i;
@@ -95,15 +93,15 @@ int replace_alias(info_t *info)
 			return (0);
 		info->argv[0] = p;
 	}
+
 	return (1);
 }
 
 /**
  * replace_vars - replaces vars in the tokenized string
  * @info: the parameter struct
- *
  * Return: 1 if replaced, 0 otherwise
- */
+*/
 int replace_vars(info_t *info)
 {
 	int i = 0;
@@ -136,6 +134,7 @@ int replace_vars(info_t *info)
 		replace_string(&info->argv[i], _strdup(""));
 
 	}
+
 	return (0);
 }
 
@@ -143,7 +142,6 @@ int replace_vars(info_t *info)
  * replace_string - replaces string
  * @old: address of old string
  * @new: new string
- *
  * Return: 1 if replaced, 0 otherwise
 */
 int replace_string(char **old, char *new)
@@ -153,3 +151,4 @@ int replace_string(char **old, char *new)
 
 	return (1);
 }
+

@@ -1,10 +1,9 @@
 #include "shell.h"
 
 /**
- * _eputs - prints an input string
- * @str: the string to be printed
- *
- * Return: Nothing
+ * _eputs - Prints an input string
+ * @str: String
+ * Return: void function
 */
 void _eputs(char *str)
 {
@@ -20,11 +19,9 @@ void _eputs(char *str)
 }
 
 /**
- * _eputchar - writes the character ch to stderr
- * @ch: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * _eputchar - Writes the character ch to stderr
+ * @ch: Character
+ * Return: Returns 1 if success, otherwise returns -1
 */
 int _eputchar(char ch)
 {
@@ -44,11 +41,9 @@ int _eputchar(char ch)
 
 /**
  * _putfd - writes the character ch to given folder
- * @ch: The character to print
- * @folder: The filedescriptor to write to
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * @ch: Character
+ * @folder: Integer
+ * Return: Returns 1 if success, otherwise returns -1
 */
 int _putfd(char ch, int folder)
 {
@@ -67,11 +62,10 @@ int _putfd(char ch, int folder)
 }
 
 /**
- * _putsfd - prints an input string
- * @str: the string to be printed
- * @folder: the filedescriptor to write to
- *
- * Return: the number of chars put
+ * _putsfd - Prints an input string
+ * @str: String
+ * @folder: Integer
+ * Return: Returns the number of chars put
 */
 int _putsfd(char *str, int folder)
 {
@@ -86,3 +80,4 @@ int _putsfd(char *str, int folder)
 
 	return (i);
 }
+

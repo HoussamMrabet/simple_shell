@@ -74,3 +74,4 @@ char *_strchr(char *s, char ch)
 
 	return (NULL);
 }
+

@@ -7,7 +7,7 @@
  * @num: node index used by history
  *
  * Return: size of list
- */
+*/
 list_t *add_node(list_t **head, const char *str, int num)
 {
 	list_t *new_head;
@@ -30,6 +30,7 @@ list_t *add_node(list_t **head, const char *str, int num)
 	}
 	new_head->next = *head;
 	*head = new_head;
+
 	return (new_head);
 }
 
@@ -40,7 +41,7 @@ list_t *add_node(list_t **head, const char *str, int num)
  * @num: node index used by history
  *
  * Return: size of list
- */
+*/
 list_t *add_node_end(list_t **head, const char *str, int num)
 {
 	list_t *new_node, *node;
@@ -71,6 +72,7 @@ list_t *add_node_end(list_t **head, const char *str, int num)
 	}
 	else
 		*head = new_node;
+
 	return (new_node);
 }
 
@@ -79,7 +81,7 @@ list_t *add_node_end(list_t **head, const char *str, int num)
  * @h: pointer to first node
  *
  * Return: size of list
- */
+*/
 size_t print_list_str(const list_t *h)
 {
 	size_t i = 0;
@@ -91,6 +93,7 @@ size_t print_list_str(const list_t *h)
 		h = h->next;
 		i++;
 	}
+
 	return (i);
 }
 
